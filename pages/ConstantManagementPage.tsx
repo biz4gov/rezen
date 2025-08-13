@@ -1,7 +1,7 @@
 
+
 import React, { useState, useEffect } from 'react';
-import type { ConstantConfig } from '../App';
-import type { ConstantItem } from '../types';
+import type { ConstantConfig, ConstantItem } from '../types';
 import { ArrowLeft, Plus, Trash2, Save, Loader2, Check } from 'lucide-react';
 import * as api from '../services/api';
 

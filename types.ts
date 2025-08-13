@@ -219,6 +219,12 @@ export interface BrandingConfig {
   marca: File | StoredImage | null;
 }
 
+export interface ConstantConfig {
+  key: string;
+  title: string;
+  defaultValues: ConstantItem[];
+}
+
 // --- Auth & RBAC Types ---
 export type Permission =
   | 'users:manage'

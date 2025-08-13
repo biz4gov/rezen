@@ -1,6 +1,7 @@
 
+
 import React from 'react';
-import type { ConstantConfig } from '../App';
+import type { ConstantConfig } from '../types';
 import { ArrowLeft, ChevronRight, List, FileText, CheckSquare, Sliders, BrainCircuit, MessageSquare, Palette } from 'lucide-react';
 
 interface SettingsPageProps {

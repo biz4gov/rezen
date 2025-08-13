@@ -28,10 +28,9 @@ export const sendWhatsappNotification = async (
         return { success: false, error: 'Destinatário não definido. Forneça um número de telefone ou configure um Chat ID padrão.' };
     }
 
-    // The API endpoint requires the key in the 'X-Api-Key' header for authentication.
-    // A 401 Unauthorized error occurs when the key is sent as a query parameter.
-    // While the original code may have attempted a CORS workaround, fixing authentication is the priority.
-    // If CORS issues persist, the server must be configured to allow the 'X-Api-Key' header via Access-Control-Allow-Headers.
+    // The previous attempt using 'X-Api-Key' resulted in a 401 error.
+    // This attempt uses the standard 'Authorization' header with a Bearer token,
+    // which might be required by this specific API deployment.
     const url = `${endpoint.replace(/\/$/, '')}/api/sendText`;
 
     try {
@@ -39,7 +38,7 @@ export const sendWhatsappNotification = async (
             method: 'POST',
             headers: {
                 'Accept': 'application/json',
-                'X-Api-Key': key, // Added API key to the header for proper authentication.
+                'Authorization': `Bearer ${key}`,
                 'Content-Type': 'application/json'
             },
             body: JSON.stringify({
